@@ -1,5 +1,5 @@
 # Rabbid MultiTool Vita
-Powerful toolbox, currently for the PSVita and PSP.
+Powerful toolbox, currently for the PSVita.
 
 <img src="Screenshots/2024-08-02-143643.png">
 
