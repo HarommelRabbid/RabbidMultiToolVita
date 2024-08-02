@@ -1,6 +1,6 @@
 # Rabbid MultiTool Vita
 Powerful toolbox, currently for the PSVita and PSP.
-(Main Menu)[Screenshots/2024-08-02-143643.png]
+<img src="Screenshots/2024-08-02-143643.png">
 ## Features
 ### Database Tools
 * **Back up app.db**: Backs up the app database to use it in case of restoring your bubble layout.
