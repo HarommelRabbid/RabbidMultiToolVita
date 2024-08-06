@@ -25,6 +25,6 @@ Once clicked, a list will show with all the apps installed, system apps present 
 #### Settings
 * Show icons in app list: Enable/disable icon preview in the app list of **App Tools**. It's recommended to turn this off as having it on might cause lag/freezing issues and sometimes either a C stack overflow error or a GPU crash.
 #### Other Additions
-Auto-Updating is now a thing, you can now update directly within the app. This will affect versions 0.10 and onwards, as versions 0.09 or below need to be updated manually because these versions don't have auto-updating.
+Auto-Updating is now a thing, you can now update directly within the app. This will affect versions 0.10 and onwards, as versions 0.09 or below need to be updated manually because these versions don't have auto-updating. The code is sourced from other official OneLua apps.
 ## Credits
 * OneLua team for their Lua interpreter and their past apps.
