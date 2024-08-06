@@ -13,7 +13,9 @@ Powerful toolbox for the PSVita. It only does everything!
 ### App Tools
 Once clicked, a list will show with all the apps installed, system apps present in the app database and official (not Adrenaline bubbles) PSP/PS1 bubbles. You can add a custom icon and livearea images to an app in the specified folder. This is not possible with system apps yet.
 ### Account Tools
-TBA
+* Show account info: Self-explanatory, displays your PSN account info such as password or ID.
+* Back up PSN account: Backs up the current PSN account in a folder named after the current ID of your PSN account.
+* Restore PSN account: Restores/switch an account from your account backups made with Rabbid MultiTool.
 ### Features coming in 0.10
 #### Registry Tools
 * Reset parental passcode: Resets the Parental Controls passcode, useful in cases of purchasing a Vita with a parental passcode & settings left and forgotten by the previous owner(s).
