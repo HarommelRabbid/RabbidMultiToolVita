@@ -16,15 +16,14 @@ Once clicked, a list will show with all the apps installed, system apps present 
 * Show account info: Self-explanatory, displays your PSN account info such as password or ID.
 * Back up PSN account: Backs up the current PSN account in a folder named after the current ID of your PSN account.
 * Restore PSN account: Restores/switch an account from your account backups made with Rabbid MultiTool.
-### Features coming in 0.10
-#### Registry Tools
+### Registry Tools
 * Reset parental passcode: Resets the Parental Controls passcode, useful in cases of purchasing a Vita with a parental passcode & settings left and forgotten by the previous owner(s).
 * Reset screen lock passcode: Resets the lockscreen passcode, allowing to go directly to the Livearea without typing a passcode.
 * Disable Auto-AVLS: Disables the Auto-AVLS feature for AVLS-forced Vitas.
 * Modify a registry key: You can modify a registry key from the system's registry to whatever you like/want.
-#### Settings
+### Settings
 * Show icons in app list: Enable/disable icon preview in the app list of **App Tools**. It's recommended to turn this off as having it on might cause lag/freezing issues and sometimes either a C stack overflow error or a GPU crash.
-#### Other Additions
+### Other Additions
 Auto-Updating is now a thing, you can now update directly within the app. This will affect versions 0.10 and onwards, as versions 0.09 or below need to be updated manually because these versions don't have auto-updating. The code is sourced from other official OneLua apps.
 ## Credits
 * OneLua team for their Lua interpreter and their past apps.
