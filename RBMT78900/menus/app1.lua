@@ -1,5 +1,3 @@
-snow = false
-if tonumber(os.date("%m")) == 12 or tonumber(os.date("%m")) == 1 or tonumber(os.date("%m")) == 2 then snow = true end
 dofile("scripts/scroll.lua")
 dofile("scripts/stars.lua")
 color.loadpalette()
@@ -9,6 +7,8 @@ SYMBOL_TRIANGLE = string.char(0xe2)..string.char(0x96)..string.char(0xb3)
 SYMBOL_CROSS	= string.char(0xe2)..string.char(0x95)..string.char(0xb3)
 SYMBOL_CIRCLE	= string.char(0xe2)..string.char(0x97)..string.char(0x8b)
 if os.access() == 0 then os.message("Unsafe mode is required for this homebrew") os.exit() end
+
+local appicon0 = image.load("ur0:appmeta/"..selgame.."/icon0.png")
 
 local name_callback = function()
  os.message("Coming soon...")
@@ -57,6 +57,10 @@ while true do
 screen.print(10,10,"Rabbid MultiTool Lua") 
 screen.print(10,30,"by Harommel Rabbid")
 screen.print(10,70,"Selected Game: "..selgame.."")
+			screen.clip(832+64,0+64, 128/2)
+draw.fillrect(832,0, 128, 128, color.white) 
+if appicon0 then appicon0:blit(832,0) end
+screen.clip()
 	local y = 110
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 

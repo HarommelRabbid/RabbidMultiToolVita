@@ -1,6 +1,3 @@
-snow = false
-if tonumber(os.date("%m")) == 12 or tonumber(os.date("%m")) == 1 or tonumber(os.date("%m")) == 2 then snow = true end
-dofile("scripts/dbtool.lua")
 dofile("scripts/scroll.lua")
 dofile("scripts/stars.lua")
 color.loadpalette()
@@ -36,10 +33,6 @@ local remove_callback = function()
  end
 end
 
-local exit1_callback = function()
- dofile("script.lua")
-end
-
 menulst1 = {
 {text="View account info", funct=info_callback},
 {text="Back up account", funct=backacc_callback},
@@ -70,6 +63,6 @@ buttons.read()
 if buttons.accept then menulst1[scroll.sel].funct() end
 if buttons.down or buttons.analogly > 60 then scroll:down() end
 if buttons.up or buttons.analogly < -60 then scroll:up() end 
-if buttons.cancel then dofile("script.lua") end
+if buttons.cancel then dofile("menus/menu.lua") end
 
 end

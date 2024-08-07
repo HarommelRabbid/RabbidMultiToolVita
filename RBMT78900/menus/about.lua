@@ -1,5 +1,3 @@
-snow = false
-if tonumber(os.date("%m")) == 12 or tonumber(os.date("%m")) == 1 or tonumber(os.date("%m")) == 2 then snow = true end
 dofile("scripts/stars.lua")
 dofile("scripts/scroll.lua")
 color.loadpalette()
@@ -15,7 +13,7 @@ while true do
 screen.print(10,30,"by Harommel Rabbid")
 screen.print(10,10,"Rabbid MultiTool Lua")
 screen.print(10,70,"Rabbid MultiTool is a toolbox for the PS Vita with many features in.")
-screen.print(10,90,"V0.09 Lua")
+screen.print(10,90,"V0.10 Lua")
 screen.print(10,110,"Developed solely by Harommel Rabbid.")
 screen.print(10,130,"OneLua is developed by the OneLua Team.")
 draw.fillrect(5,170-2,350,21, color.blue:a(125)) 
@@ -25,6 +23,6 @@ if snow == true then stars.render() end
 screen.flip()
 
 buttons.read()
-if buttons.accept or buttons.cancel then break end
+if buttons.accept or buttons.cancel then dofile("menus/menu.lua") end
 
 end

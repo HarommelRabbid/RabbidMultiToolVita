@@ -17,7 +17,7 @@ local scroll = newScroll(menulst2,23)
 while true do
 screen.print(10,30,"by Harommel Rabbid")
 screen.print(10,10,"Rabbid MultiTool Lua")
-screen.print(815, 525, "SELECT: Apps")
+screen.print(805, 525, "L/R: App Types")
 	local y = 70
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 
@@ -41,7 +41,8 @@ buttons.read()
 if buttons.accept then selgame = menulst2[scroll.sel].id seltitle = menulst2[scroll.sel].title selpath = menulst2[scroll.sel].path dofile("menus/app1.lua") end
 if buttons.down or buttons.analogly > 60 then scroll:down() end
 if buttons.up or buttons.analogly < -60 then scroll:up() end 
-if buttons.select then dofile("menus/app.lua") end
+if buttons.l then dofile("menus/appsys.lua") end
+if buttons.r then dofile("menus/app.lua") end
 if buttons.cancel then dofile("script.lua") end
 
 end

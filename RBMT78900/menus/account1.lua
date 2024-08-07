@@ -1,5 +1,3 @@
-snow = false
-if tonumber(os.date("%m")) == 12 or tonumber(os.date("%m")) == 1 or tonumber(os.date("%m")) == 2 then snow = true end
 dofile("scripts/stars.lua")
 dofile("scripts/scroll.lua")
 color.loadpalette()
@@ -26,6 +24,6 @@ if snow == true then stars.render() end
 screen.flip()
 
 buttons.read()
-if buttons.accept or buttons.cancel then break end
+if buttons.accept or buttons.cancel then dofile("menus/account.lua") end
 
 end
