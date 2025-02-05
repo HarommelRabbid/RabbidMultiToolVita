@@ -19,7 +19,6 @@ Once clicked, a list will show with all the apps installed, system apps present 
 ### Registry Tools
 * Reset parental passcode: Resets the Parental Controls passcode, useful in cases of purchasing a Vita with a parental passcode & settings left and forgotten by the previous owner(s).
 * Reset screen lock passcode: Resets the lockscreen passcode, allowing to go directly to the Livearea without typing a passcode.
-* Disable Auto-AVLS: Disables the Auto-AVLS feature for AVLS-forced Vitas.
 * Modify a registry key: You can modify a registry key from the system's registry to whatever you like/want.
 ### Settings
 * Show icons in app list: Enable/disable icon preview in the app list of **App Tools**. It's recommended to turn this off as having it on might cause lag/freezing issues and sometimes either a C stack overflow error or a GPU crash.
