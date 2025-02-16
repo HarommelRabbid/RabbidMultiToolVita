@@ -17,7 +17,7 @@ screen.print(10,90,"PSN Email: "..tostring(os.login()))
 screen.print(10,110,"PSN Password: "..tostring(os.password())) 
 screen.print(10,130,"PSN Region: "..tostring(os.psnregion())) 
 screen.print(10,150,"PSN ID: "..tostring(os.account())) 
-draw.fillrect(5,190-2,350,21, color.blue) 
+draw.fillrect(5,190-2,350,21, color1) 
 screen.print(10,190,"Back")
 if back_temp then back_temp:blit(500,0) end
 if snow == true then stars.render() end

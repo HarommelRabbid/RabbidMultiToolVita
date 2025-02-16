@@ -54,7 +54,7 @@ screen.print(10,30,"by Harommel Rabbid")
 	local y = 70
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 
-draw.fillrect(5,y-2,350,21, color.blue) 
+draw.fillrect(5,y-2,350,21, color1) 
 end
 		screen.print(10,y, menulst1[i].text) 
 		y+=20 

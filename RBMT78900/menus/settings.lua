@@ -34,17 +34,20 @@ local bg_callback = function()
  if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "custombg", "default") == "true" then
   ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "custombg", "false")
   bg = false
+  back = nil
  else
   ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "custombg", "true")
   bgpath = ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "bgpath", "default")
   bgpath = osk.init("Path to background", bgpath)
   ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "bgpath", bgpath)
   bg = true
+  back = image.load(bgpath)
  end
 end
 
 local color_callback = function()
-
+ color1 = colpallete[ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "color", "default")]
+ dofile("menus/settings/color.lua")
 end
 
 local update_callback = function()
@@ -74,7 +77,7 @@ screen.print(10,30,"by Harommel Rabbid")
 	local y = 70
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 
-draw.fillrect(5,y-2,350,21, color.blue) 
+draw.fillrect(5,y-2,350,21, color1) 
 if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "appicon", "default") == "true" and i == 1 then
  draw.fillrect(355,y-2,40,21, color.green) 
 elseif ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "appicon", "default") == "false" and i == 1 then

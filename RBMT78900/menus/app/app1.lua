@@ -46,7 +46,7 @@ end
 
 local mimg_callback = function()
  os.message("Place your custom image files, inside of a folder named after the \nID of your currently selected app in \n'ux0:data/Rabbid MultiTool/Game'")
- local files2 = "ux0:data/Rabbid MultiTool/Game/"..selgame.."/"
+ local files2 = "ux0:data/Rabbid MultiTool/Game/"..selgame
  local files3 = files.list("ux0:data/Rabbid MultiTool/Game/"..selgame.."/")
  if files.copy(files2, "ur0:appmeta/") == 1 then
  files.copy("ur0:appmeta/"..selgame, "ux0:data/Rabbid MultiTool/Backups/Apps/")
@@ -88,7 +88,7 @@ screen.clip()
 	local y = 110
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 
-draw.fillrect(5,y-2,350,21, color.blue) 
+draw.fillrect(5,y-2,350,21, color1) 
 end
 		screen.print(10,y, menulst1[i].text) 
 		y+=20 

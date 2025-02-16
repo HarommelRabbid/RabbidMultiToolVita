@@ -25,7 +25,7 @@ screen.print(805, 525, "L/R: App Types")
 	local y = 70
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 
-draw.fillrect(5,y-2,350+140+40,21, color.blue) 
+draw.fillrect(5,y-2,350+140+40,21, color1) 
 if iconshow == true then
 local appicon0 = image.load("ur0:appmeta/"..menulst2[i].id.."/icon0.png")
 			screen.clip(832+64,0+64, 128/2)

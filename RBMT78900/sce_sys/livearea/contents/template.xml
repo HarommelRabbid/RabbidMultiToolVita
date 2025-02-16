@@ -6,7 +6,7 @@
 	</livearea-background>
 	 
 	<gate>
-		<startup-image></startup-image>
+		<startup-image>startup.png</startup-image>
 	</gate>
 	
 	<frame id="frame2">
@@ -28,7 +28,7 @@
 	<frame id="frame4">
 		<liveitem>
 			<text align="left" text-align="left" word-wrap="off" ellipsis="on">
-				<str size="18" color="#ffffff" shadow="on">v0.11pre</str>
+				<str size="18" color="#ffffff" shadow="on">v0.11</str>
 			</text>
 		</liveitem>
 	</frame>
