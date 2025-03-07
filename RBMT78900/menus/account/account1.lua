@@ -7,9 +7,9 @@ SYMBOL_TRIANGLE = string.char(0xe2)..string.char(0x96)..string.char(0xb3)
 SYMBOL_CROSS	= string.char(0xe2)..string.char(0x95)..string.char(0xb3)
 SYMBOL_CIRCLE	= string.char(0xe2)..string.char(0x97)..string.char(0x8b)
 if os.access() == 0 then os.message("Unsafe mode is required for this homebrew") os.exit() end
-back_temp = image.load("imgs/raving-rabbids-tv-lapin-cretin.png")
 	buttons.interval(10,6)
 while true do
+if back then back:blit(0,0) end
 screen.print(10,30,"by Harommel Rabbid")
 screen.print(10,10,"Rabbid MultiTool Lua")
 screen.print(10,70,"Nickname: "..tostring(os.nick())) 
@@ -19,7 +19,6 @@ screen.print(10,130,"PSN Region: "..tostring(os.psnregion()))
 screen.print(10,150,"PSN ID: "..tostring(os.account())) 
 draw.fillrect(5,190-2,350,21, color1) 
 screen.print(10,190,"Back")
-if back_temp then back_temp:blit(500,0) end
 if snow == true then stars.render() end
 screen.flip()
 
