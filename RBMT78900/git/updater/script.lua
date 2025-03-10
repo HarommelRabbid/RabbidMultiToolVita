@@ -26,14 +26,14 @@ function onAppInstall(step, size_argv, written, file, totalsize, totalwritten)
     if step == 1 then												-- Only msg of state
 		if update then update:blit(0,0) end
 			draw.fillrect(0,0,960,30, color.green:a(100))
-			screen.print(10,10,"Search in vpk, Unsafe or Dangerous files!")
+			screen.print(10,10,"Rabbid MultiTool Updater") 
 		screen.flip()
 	elseif step == 2 then											-- Warning Vpk confirmation!
 		return 10 -- Ok
 	elseif step == 3 then											-- Unpack
 		if update then update:blit(0,0) end
 			draw.fillrect(0,0,960,30, color.green:a(100))
-				screen.print(10,10,"Unpack vpk...")
+				screen.print(10,10,"Extracting the VPK...") 
 				screen.print(10,35,"File: "..tostring(file))
 
 				l = (totalwritten*940)/totalsize

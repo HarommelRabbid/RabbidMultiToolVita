@@ -34,7 +34,7 @@ local bg_callback = function()
  if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "custombg", "default") == "true" then
   ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "custombg", "false")
   bg = false
-  back = nil
+  back = image.load("imgs/pic0.png")
  else
   ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "custombg", "true")
   bgpath = ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "bgpath", "default")
@@ -50,6 +50,24 @@ local color_callback = function()
  dofile("menus/settings/color.lua")
 end
 
+local snow_callback = function()
+ if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "snow", "default") == "true" then
+  snow = true ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "snow", "auto")
+ elseif ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "snow", "default") == "auto" then
+  if tonumber(os.date("%m")) == 12 or tonumber(os.date("%m")) == 1 or tonumber(os.date("%m")) == 2 then 
+  snow = true
+  else snow = false
+  end
+  ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "snow", "false")
+  elseif ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "snow", "default") == "false" then
+  snow = false ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "snow", "true")
+  end
+end
+
+local lang_callback = function()
+ 
+end
+
 local update_callback = function()
  dofile("git/updater.lua")
 end
@@ -59,6 +77,7 @@ menulst1 = {
 {text="Use a custom font", funct=font_callback},
 {text="Use a custom background", funct=bg_callback},
 {text="Change highlight color", funct=color_callback},
+{text="Language", funct=lang_callback, desc="Coming soon"},
 {text="Check for updates", funct=update_callback},
 {text="Back to main menu", funct=exit1_callback}
 }
@@ -67,36 +86,24 @@ local scroll = newScroll(menulst1,#menulst1)
 	buttons.interval(10,6)
 
 while true do
-if bg != true then
-if back then back:blit(500,0) end
-else
 if back then back:blit(0,0) end
-end
-screen.print(10,10,"Rabbid MultiTool Lua") 
-screen.print(10,30,"by Harommel Rabbid")
-	local y = 70
+draw.fillrect(0,0,960,70, color1:a(50))
+screen.print(480, 25, "Rabbid MultiTool Settings", 1, color.white, color.black, __ACENTER)
+	local y = 75
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 
-draw.fillrect(5,y-2,350,21, color1) 
-if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "appicon", "default") == "true" and i == 1 then
- draw.fillrect(355,y-2,40,21, color.green) 
-elseif ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "appicon", "default") == "false" and i == 1 then
- draw.fillrect(355,y-2,40,21, color.red) 
+draw.fillrect(5,y,472.5,50, color1) 
+draw.fillrect(0,544-30,960,70, color1:a(50)) 
+screen.print(480, 544-25, menulst1[i].desc or menulst1[i].text, 1, color.white, color.black, __ACENTER)
 end
-if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "customfont", "default") == "true" 
-and i == 2 then
- draw.fillrect(355,y-2,40,21, color.green) 
-elseif ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "customfont", "default") == "false" and i == 2 then
- draw.fillrect(355,y-2,40,21, color.red) 
+        draw.fillrect(482.5,y,472.5,50, color1:a(30)) 
+		if i == scroll.sel then 
+		screen.print(161,y+15, menulst1[i].text) 
+else
+        draw.fillrect(5,y,472.5,50, color1:a(30)) 
+		screen.print(161,y+15, menulst1[i].text) 
 end
-if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "custombg", "default") == "true" and i == 3 then
- draw.fillrect(355,y-2,40,21, color.green) 
-elseif ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "custombg", "default") == "false" and i == 3 then
- draw.fillrect(355,y-2,40,21, color.red) 
-end
-end
-		screen.print(10,y, menulst1[i].text) 
-		y+=20 
+		y+=55
 end
 
 if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
@@ -109,22 +116,28 @@ end
 
 if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "appicon", "default") == "true" 
 then
- screen.print(355,70,"Yes")
+        draw.fillrect(482.5,75,472.5,50, color.green) 
+ screen.print(161*4,75+15,"Yes")
 else
- screen.print(355,70,"No")
+        draw.fillrect(482.5,75,472.5,50, color.red) 
+ screen.print(161*4,75+15,"No")
 end
 
 if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "customfont", "default") == "true" 
 then
- screen.print(355,90,"Yes")
+        draw.fillrect(482.5,75+55,472.5,50, color.green) 
+ screen.print(161*4,75+55+15,"Yes")
 else
- screen.print(355,90,"No")
+        draw.fillrect(482.5,75+55,472.5,50, color.red) 
+ screen.print(161*4,75+55+15,"No")
 end
 
 if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "custombg", "default") == "true" then
- screen.print(355,110,"Yes")
+        draw.fillrect(482.5,75+55*2,472.5,50, color.green) 
+ screen.print(161*4,75+55*2+15,"Yes")
 else
- screen.print(355,110,"No")
+        draw.fillrect(482.5,75+55*2,472.5,50, color.red) 
+ screen.print(161*4,75+55*2+15,"No")
 end
 
 if snow == true then stars.render() end

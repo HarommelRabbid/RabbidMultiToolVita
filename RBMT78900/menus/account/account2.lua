@@ -14,11 +14,7 @@ local scroll = newScroll(menulst1,#menulst1)
 	buttons.interval(10,6)
 
 while true do
-if bg != true then
-if back then back:blit(500,0) end
-else
 if back then back:blit(0,0) end
-end
 screen.print(10,10,"Rabbid MultiTool Lua") 
 screen.print(10,30,"by Harommel Rabbid")
 	local y = 70

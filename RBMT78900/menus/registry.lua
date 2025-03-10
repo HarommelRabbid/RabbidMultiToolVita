@@ -32,24 +32,6 @@ else
 end
 end
 
-local avls_callback = function()
-if os.getreg("/CONFIG/SOUND/", "avls", 1) != 0 then
- if os.setreg("/CONFIG/SOUND/", "avls", 0) == 0 then
-  restart_flag = true os.message("AVLS disabled successfully")
- else
-  os.message("Failed")
- end
-else
- if os.message("AVLS is already disabled, do you wanna enable it again?", 1) == 1 then
- if os.setreg("/CONFIG/SOUND/", "avls", 1) == 0 then
-  restart_flag = true os.message("AVLS enabled successfully")
- else
-  os.message("Failed")
- end
-end
-end
-end
-
 local custom_callback = function()
  reg = osk.init("Registry path", "/CONFIG/")
  regkey = osk.init("Registry key", "")
@@ -75,8 +57,7 @@ end
 menulst1 = {
 {text="Reset parental passcode", funct=parental_callback},
 {text="Reset screen lock passcode", funct=lock_callback},
--- {text="Disable Auto-AVLS", funct=avls_callback},
-{text="Modify a registry key", funct=custom_callback},
+{text="Modify registry keys", funct=custom_callback},
 {text="Back to main menu", funct=exit1_callback}
 }
 
@@ -84,23 +65,28 @@ local scroll = newScroll(menulst1,#menulst1)
 	buttons.interval(10,6)
 
 while true do
-if bg != true then
-if back then back:blit(500,0) end
-else
 if back then back:blit(0,0) end
-end
-screen.print(10,10,"Rabbid MultiTool Lua") 
-screen.print(10,30,"by Harommel Rabbid")
-		screen.print(355,70, os.getreg("/CONFIG/SECURITY/PARENTAL/", "passcode", 2)) 
-		screen.print(355,90, os.getreg("/CONFIG/SECURITY/SCREEN_LOCK/", "passcode", 2))
-	local y = 70
+draw.fillrect(0,0,960,70, color1:a(50))
+screen.print(480, 25, "Registry Tools", 1, color.white, color.black, __ACENTER)
+	local y = 75
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 
-draw.fillrect(5,y-2,350,21, color1) 
+draw.fillrect(5,y,472.5,50, color1) 
+draw.fillrect(0,544-30,960,70, color1:a(50)) 
+screen.print(480, 544-25, menulst1[i].desc or menulst1[i].text, 1, color.white, color.black, __ACENTER)
 end
-		screen.print(10,y, menulst1[i].text) 
-		y+=20 
+        draw.fillrect(482.5,y,472.5,50, color1:a(30)) 
+		if i == scroll.sel then 
+		screen.print(161,y+15, menulst1[i].text) 
+else
+        draw.fillrect(5,y,472.5,50, color1:a(30)) 
+		screen.print(161,y+15, menulst1[i].text) 
 end
+		y+=55
+end
+
+screen.print(161*4,75+15, os.getreg("/CONFIG/SECURITY/PARENTAL/", "passcode", 2)) 
+screen.print(161*4,75+55+15, os.getreg("/CONFIG/SECURITY/SCREEN_LOCK/", "passcode", 2))
 
 if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
 screen.print(880,10,batt.lifepercent().."%",1,color.orange)

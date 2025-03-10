@@ -31,24 +31,27 @@ menulst1 = {
 
 local color0 = ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "color", "default")
 
-local scroll = newScroll(menulst1,#menulst1)
+local scroll = newScroll(menulst1,8)
 	buttons.interval(10,6)
 
 while true do
-if bg != true then
-if back then back:blit(500,0) end
-else
 if back then back:blit(0,0) end
-end
-screen.print(10,10,"Rabbid MultiTool Lua") 
-screen.print(10,30,"by Harommel Rabbid")
-	local y = 70
+draw.fillrect(0,0,960,70, color1:a(50))
+screen.print(480, 25, "Pick Highlight Color", 1, color.white, color.black, __ACENTER)
+	local y = 75
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 
-draw.fillrect(5,y-2,350,21, colpallete[string.lower(menulst1[scroll.sel])]) 
+draw.fillrect(0,544-30,960,70, colpallete[string.lower(menulst1[scroll.sel])]:a(50))
+screen.print(480, 544-25, menulst1[scroll.sel], 1, color.white, color.black, __ACENTER)
+draw.fillrect(5,y,950,50, colpallete[string.lower(menulst1[scroll.sel])]) 
 end
-		screen.print(10,y, menulst1[i]) 
-		y+=20 
+draw.fillrect(5,y,950,50, colpallete[string.lower(menulst1[i])]:a(30)) 
+if colpallete[string.lower(menulst1[i])] == color1 then
+screen.print(480, y+15, menulst1[i], 1, color.gray, color.black:a(0), __ACENTER)
+else
+screen.print(480, y+15, menulst1[i], 1, color.white, color.black:a(0), __ACENTER)
+end
+		y+=55
 end
 
 if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
@@ -63,7 +66,7 @@ if snow == true then stars.render() end
 screen.flip()
 
 buttons.read()
-if buttons.accept then upd = true color1 = colpallete[string.lower(menulst1[scroll.sel])] ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "color", string.lower(menulst1[scroll.sel])) os.message("Color updated") end
+if buttons.accept then if colpallete[string.lower(menulst1[scroll.sel])] != color1 then upd = true color1 = colpallete[string.lower(menulst1[scroll.sel])] ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "color", string.lower(menulst1[scroll.sel])) os.message("Color updated") dofile("menus/settings.lua") end end
 if buttons.down or buttons.analogly > 60 then scroll:down() end
 if buttons.up or buttons.analogly < -60 then scroll:up() end 
 if buttons.cancel then if upd != true then color1 = colpallete[color0] end dofile("menus/settings.lua") end

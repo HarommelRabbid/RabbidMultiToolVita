@@ -67,7 +67,7 @@ local exit1_callback = function()
 end
 
 menulst1 = {
-{text="Open app", funct=open_callback},
+{text="Open app", funct=open_callback, desc="Only goes to the LiveArea page."},
 --{text="Change bubble & LiveArea images", funct=mimg_callback},
 --{text="Change bubble title", funct=name_callback},
 --{text="Uninstall app", funct=remove_callback},
@@ -78,22 +78,35 @@ local scroll = newScroll(menulst1,#menulst1)
 	buttons.interval(10,6)
 
 while true do
-screen.print(10,10,"Rabbid MultiTool Lua") 
-screen.print(10,30,"by Harommel Rabbid")
-screen.print(10,70,"Selected Game: "..selgame.."")
-			screen.clip(832+64,0+64, 128/2)
-draw.fillrect(832,0, 128, 128, color.white) 
-if appicon0 then appicon0:blit(832,0) end
+if back then back:blit(0,0) end
+draw.fillrect(0,0,960,70, color1:a(50))
+screen.print(480, 25, seltitle.." - "..selgame, 1, color.white, color.black, __ACENTER)
+			screen.clip(832-5+64,75+64, 128/2)
+draw.fillrect(832-5,75, 128, 128, color.white) 
+if appicon0 then appicon0:blit(832-5,75) end
 screen.clip()
-	local y = 110
+	local y = 75
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 
-draw.fillrect(5,y-2,350,21, color1) 
+draw.fillrect(5,y,472.5,50, color1) 
+draw.fillrect(0,544-30,960,70, color1:a(50)) 
+screen.print(480, 544-25, menulst1[i].desc or menulst1[i].text, 1, color.white, color.black, __ACENTER)
 end
-		screen.print(10,y, menulst1[i].text) 
-		y+=20 
+		if i == scroll.sel then 
+		screen.print(161,y+15, menulst1[i].text) 
+else
+        draw.fillrect(5,y,472.5,50, color1:a(30)) 
+		screen.print(161,y+15, menulst1[i].text) 
 end
-
+		y+=55
+end
+if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
+screen.print(880,10,batt.lifepercent().."%",1,color.orange)
+elseif batt.lifepercent() < 20 then
+screen.print(880,10,batt.lifepercent().."%",1,color.red)
+else
+screen.print(880,10,batt.lifepercent().."%",1,color.green)
+end
 if snow == true then stars.render() end
 screen.flip()
 

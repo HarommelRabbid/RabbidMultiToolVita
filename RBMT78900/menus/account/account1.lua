@@ -10,15 +10,22 @@ if os.access() == 0 then os.message("Unsafe mode is required for this homebrew")
 	buttons.interval(10,6)
 while true do
 if back then back:blit(0,0) end
-screen.print(10,30,"by Harommel Rabbid")
-screen.print(10,10,"Rabbid MultiTool Lua")
-screen.print(10,70,"Nickname: "..tostring(os.nick())) 
-screen.print(10,90,"PSN Email: "..tostring(os.login())) 
-screen.print(10,110,"PSN Password: "..tostring(os.password())) 
-screen.print(10,130,"PSN Region: "..tostring(os.psnregion())) 
-screen.print(10,150,"PSN ID: "..tostring(os.account())) 
-draw.fillrect(5,190-2,350,21, color1) 
-screen.print(10,190,"Back")
+draw.fillrect(0,0,960,70, color1:a(50))
+screen.print(480, 25, "PSN Account Info", 1, color.white, color.black, __ACENTER)
+screen.print(10,75,"Nickname: "..tostring(os.nick())) 
+screen.print(10,95,"PSN Email: "..tostring(os.login())) 
+screen.print(10,115,"PSN Password: "..tostring(os.password())) 
+screen.print(10,135,"PSN Region: "..tostring(os.psnregion())) 
+screen.print(10,155,"PSN ID: "..tostring(os.account())) 
+draw.fillrect(5,544-55,950,50, color1) 
+screen.print(480, 544-40, "Back")
+if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
+screen.print(880,10,batt.lifepercent().."%",1,color.orange)
+elseif batt.lifepercent() < 20 then
+screen.print(880,10,batt.lifepercent().."%",1,color.red)
+else
+screen.print(880,10,batt.lifepercent().."%",1,color.green)
+end
 if snow == true then stars.render() end
 screen.flip()
 

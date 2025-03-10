@@ -1,7 +1,26 @@
+--[[
+Rabbid MultiTool OneLua 0.12pre
+TODO:
+- Add touch support
+- Add icons to app list
+- Finish the rest of the menus
+]]
 snow = false
-if tonumber(os.date("%m")) == 12 or tonumber(os.date("%m")) == 1 or tonumber(os.date("%m")) == 2 then snow = true end
-buttons.homepopup(0)
 if os.access() == 0 then os.message("Unsafe mode is required for this homebrew") os.exit() end
+
+--[[appicons = {}
+sysicons = {}
+
+local apps = game.list(__GAME_LIST_ALL)
+local sysapps = game.list(__GAME_LIST_SYS)
+
+for i=1, #apps do
+table.insert(appicons, i, image.load("ur0:appmeta/"..apps[i].id.."/icon0.png") or image.new(128, 128, color.white))
+end
+for i=1, #sysapps do
+table.insert(sysicons, i, image.load("vs0:app/"..sysapps[i].id.."/sce_sys/icon0.png"))
+end
+]]
 
 if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "customfont", "default") == "true" then
   local fontpath = ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "fontpath", "default")
@@ -41,9 +60,14 @@ colpallete = {
 }
 
 color1 = ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "color", "default")
+snow1 = ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "snow", "default")
 
 if color1 == "default" then
- ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "color", "blue")
+ ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "color", "navy")
+end
+
+if snow1 == "default" then
+ ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "snow", "false")
 end
 
 color1 = colpallete[color1]
@@ -56,12 +80,15 @@ end
 
 if files.exists("ux0:data/Rabbid MultiTool/config.ini") == false then
  ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "appicon", "false")
- ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "customfont", "false")
- ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "fontpath", "")
+ ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "customfont", "true")
+ ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "fontpath", "sa0:data/font/pvf/jpn2.pvf")
  ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "custombg", "false")
  ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "bgpath", "")
- ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "color", "blue")
+ ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "color", "navy")
+ ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "snow", "false")
 end
+
+if ((tonumber(os.date("%m")) == 12 or tonumber(os.date("%m")) == 1 or tonumber(os.date("%m")) == 2) and snow1 == "auto") or snow1 == "true" then snow = true end
 
 splash.zoom("sce_sys/pic0.png")
 dofile("menus/menu.lua")

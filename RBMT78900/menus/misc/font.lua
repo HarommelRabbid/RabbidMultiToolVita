@@ -7,9 +7,6 @@ SYMBOL_TRIANGLE = string.char(0xe2)..string.char(0x96)..string.char(0xb3)
 SYMBOL_CROSS	= string.char(0xe2)..string.char(0x95)..string.char(0xb3)
 SYMBOL_CIRCLE	= string.char(0xe2)..string.char(0x97)..string.char(0x8b)
 if os.access() == 0 then os.message("Unsafe mode is required for this homebrew") os.exit() end
-if bg == true then
-back = image.load(bgpath)
-end
 
 local load_callback = function()
  if fntpath then fntpath = osk.init("Path to font", fntpath) else fntpath = osk.init("Path to font", "") end
@@ -20,14 +17,16 @@ local preview_callback = function()
   os.message("No font loaded.")
  else
   fntpath1 = font.load(fntpath)
-screen.print(10,10,"Rabbid MultiTool Lua") 
-screen.print(10,30,"by Harommel Rabbid")
-  screen.print(fntpath1,10, 70, "qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM")
-  screen.print(fntpath1,10, 90, "1234567890")
-  screen.print(fntpath1,10, 110, ".-/:@!?#%()_,;*+=&<>[]{}")
-  screen.print(10, 150, SYMBOL_CIRCLE..": Back")
+if back then back:blit(0,0) end
+draw.fillrect(0,0,960,70, color1:a(50))
+screen.print(480, 25, "Font Preview", 1, color.white, color.black, __ACENTER)
+  screen.print(fntpath1,10, 75, "qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM")
+  screen.print(fntpath1,10, 95, "1234567890")
+  screen.print(fntpath1,10, 115, ".-/:@!?#%()_,;*+=&<>[]{}")
+draw.fillrect(5,544-55,950,50, color1) 
+screen.print(480, 544-40, "Back")
   screen.flip()
-  buttons.waitforkey(__CIRCLE)
+  buttons.waitforkey(__CIRCLE or __CROSS)
  end
 end
 
@@ -36,8 +35,8 @@ local exit2_callback = function()
 end
 
 menulst1 = {
-{text="Load font", funct=load_callback},
-{text="Preview font", funct=preview_callback},
+{text="Load font", funct=load_callback, desc="Load a font from given path"},
+{text="Preview font", funct=preview_callback, desc="Preview the loaded font"},
 {text="Back", funct=exit2_callback}
 }
 
@@ -46,15 +45,23 @@ local scroll = newScroll(menulst1,#menulst1)
 
 while true do
 if back then back:blit(0,0) end
-screen.print(10,10,"Rabbid MultiTool Lua") 
-screen.print(10,30,"by Harommel Rabbid")
-	local y = 70
+draw.fillrect(0,0,960,70, color1:a(50))
+screen.print(480, 25, "Font Previewer", 1, color.white, color.black, __ACENTER)
+	local y = 75
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 
-draw.fillrect(5,y-2,350,21, color1) 
+draw.fillrect(5,y,472.5,50, color1) 
+draw.fillrect(0,544-30,960,70, color1:a(50)) 
+screen.print(480, 544-25, menulst1[i].desc or menulst1[i].text, 1, color.white, color.black, __ACENTER)
 end
-		screen.print(10,y, menulst1[i].text) 
-		y+=20 
+        draw.fillrect(482.5,y,472.5,50, color1:a(30)) 
+		if i == scroll.sel then 
+		screen.print(161,y+15, menulst1[i].text) 
+else
+        draw.fillrect(5,y,472.5,50, color1:a(30)) 
+		screen.print(161,y+15, menulst1[i].text) 
+end
+		y+=55
 end
 
 if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then

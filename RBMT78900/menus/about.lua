@@ -9,16 +9,12 @@ SYMBOL_CIRCLE	= string.char(0xe2)..string.char(0x97)..string.char(0x8b)
 if os.access() == 0 then os.message("Unsafe mode is required for this homebrew") os.exit() end
 	buttons.interval(10,6)
 while true do
-if bg != true then
-if back then back:blit(500,0) end
-else
 if back then back:blit(0,0) end
-end
-screen.print(10,30,"by Harommel Rabbid")
-screen.print(10,10,"Rabbid MultiTool Lua")
-screen.print(10,70,"Rabbid MultiTool is a toolbox for the PS Vita with many features in.\nV0.11 OneLua\nDeveloped by Harommel OddSock")
-draw.fillrect(5,150-2,350,21, color1) 
-screen.print(10,150,"Back")
+draw.fillrect(0,0,960,70, color1:a(50))
+screen.print(480, 25, "About Rabbid MultiTool", 1, color.white, color.black, __ACENTER)
+screen.print(10,75,"Rabbid MultiTool is a toolbox for the PS Vita with many features in.\nV0.12pre OneLua\nDeveloped by Harommel OddSock")
+draw.fillrect(5,544-55,950,50, color1) 
+screen.print(480, 544-40, "Back")
 if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
 screen.print(880,10,batt.lifepercent().."%",1,color.orange)
 elseif batt.lifepercent() < 20 then
