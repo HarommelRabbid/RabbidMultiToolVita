@@ -11,7 +11,7 @@ Powerful toolbox for the PSVita. It only does everything!
 * **Rebuild database**: Self-explanatory yet again, triggers a database rebuild. Doing so wipes your bubble layout. It can be restored by using the aforementioned backup/restore app database option.
 * **Import Media**: Imports media to the database, meaning it can be accessed by using the system media apps.
 ### App Tools
-Once clicked, a list will show with all the apps installed, system apps present in the app database and official (not Adrenaline bubbles) PSP/PS1 bubbles. You can add a custom icon and livearea images to an app in the specified folder. This is not possible with system apps yet.
+Once clicked, a list will show with all the apps installed, system apps present in the app database and official (not Adrenaline) PSP/PS1 bubbles. You can add a custom icon and livearea images to an app in the specified folder aswell as change the app's name. This is not possible with system apps yet and not tested with any PSP/1 bubbles.
 ### Account Tools
 * Show account info: Self-explanatory, displays your PSN account info such as password or ID.
 * Back up PSN account: Backs up the current PSN account in a folder named after the current ID of your PSN account.
