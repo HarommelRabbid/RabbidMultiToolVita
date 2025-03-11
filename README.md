@@ -20,8 +20,17 @@ Once clicked, a list will show with all the apps installed, system apps present 
 * Reset parental passcode: Resets the Parental Controls passcode, useful in cases of purchasing a Vita with a parental passcode & settings left and forgotten by the previous owner(s).
 * Reset screen lock passcode: Resets the lockscreen passcode, allowing to go directly to the Livearea without typing a passcode.
 * Modify a registry key: You can modify a registry key from the system's registry to whatever you like/want.
+### Miscellaneous Tools
+* Font Previewer
+* .SFO Tools
+* USB & FTP
 ### Settings
 * Show icons in app list: Enable/disable icon preview in the app list of **App Tools**. It's recommended to turn this off as having it on might cause lag/freezing issues and sometimes either a C stack overflow error or a GPU crash.
+* Use custom background
+* Use custom font
+* Change highlight color
+* Language
+* Check for updates
 ### Other Additions
 Auto-Updating is now a thing, you can now update directly within the app. This will affect versions 0.10 and onwards, as versions 0.09 or below need to be updated manually because they don't have auto-updating. The code is sourced from other official OneLua apps.
 ## Credits
