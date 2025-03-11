@@ -5,8 +5,8 @@ Powerful toolbox for the PSVita. It only does everything!
 
 ## Features
 ### Database Tools
-* **Back up app.db**: Backs up the app database to use it in case of restoring your bubble layout.
-* **Restore backed up app.db**: Self-explanatory, restores your previously backed up app database.
+* **Back up icon layout**: Backs up the app database & icon layout to use it in case of restoring your bubble layout.
+* **Restore backed up icon layout**: Self-explanatory, restores your previously backed up app database & icon layout.
 * **Update database**: Also self-explanatory, triggers a database update. Doing this wipes your custom themes from the database and you'll have to add them back using a custom themes manager. Official themes aren't affected and will stay.
 * **Rebuild database**: Self-explanatory yet again, triggers a database rebuild. Doing so wipes your bubble layout. It can be restored by using the aforementioned backup/restore app database option.
 * **Import Media**: Imports media to the database, meaning it can be accessed by using the system media apps.
@@ -29,7 +29,7 @@ Once clicked, a list will show with all the apps installed, system apps present 
 * Use custom background
 * Use custom font
 * Change highlight color
-* Language
+* Language (soon)
 * Check for updates
 ### Other Additions
 Auto-Updating is now a thing, you can now update directly within the app. This will affect versions 0.10 and onwards, as versions 0.09 or below need to be updated manually because they don't have auto-updating. The code is sourced from other official OneLua apps.
