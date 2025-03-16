@@ -1,5 +1,5 @@
-# Rabbid MultiTool Vita
-Powerful toolbox for the PSVita. It only does everything!
+# Rabbid MultiTool
+A powerful toolbox for the PS Vita. It only does everything!
 
 <img src="Screenshots/IMG_3042.png">
 
