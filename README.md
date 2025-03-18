@@ -24,6 +24,13 @@ Once clicked, a list will show with all the apps installed, system apps present 
 * Font Previewer
 * .SFO Tools
 * USB & FTP
+* File Downloader
+### rePatch Tools
+Manages your games that use rePatch (enable & disable games from using rePatch). In order for the menu item to appear in the main menu you need to have the rePatch plugin installed.
+### taiHEN Tools
+Manages your plugins on your Vita (like to enable & disable plugins).
+### File Manager
+Obvious. Manages your files. It can open images and play music & videos. Do note that some audio files may scuff up and play distorted. This is a problem in the interpreter itself. It can also install .VPKs and edit files. The interface might seem a bit familliar if you've used VitaShell (99% did).
 ### Settings
 * Show icons in app list: Enable/disable icon preview in the app list of **App Tools**. It's recommended to turn this off as having it on might cause lag/freezing issues and sometimes either a C stack overflow error or a GPU crash.
 * Use custom background
