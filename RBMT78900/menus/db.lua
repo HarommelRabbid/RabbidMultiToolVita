@@ -24,8 +24,22 @@ if os.dialog("DISCLAIMER: After the process is complete, you'll have to reimport
 end
 end
 
+local restorelayout_callback = function()
+ if files.copy("ux0:data/Rabbid MultiTool/Backups/iconlayout.ini", "ux0:") == 1 then
+  os.dialog("Successfully restored the icon layout to the last backed up version.")
+  restart_flag = true
+ else
+  os.dialog("The backed up icon layout wasn't detected. You can back it up first.")
+ end
+end
+
 local restoredb_callback = function()
-restore_db("ur0:shell/db")
+ if files.copy("ux0:data/Rabbid MultiTool/Backups/app.db", "ur0:shell/db") == 1 then
+  os.dialog("Successfully restored the app database to the last backed up version.")
+  restart_flag = true
+ else
+  os.dialog("The backed up app database wasn't detected. You can back it up first.")
+ end
 end
 
 local rebuilddb_callback = function()
@@ -33,8 +47,9 @@ if os.dialog("DISCLAIMER: After the process is complete, your bubble layout will
 end
 
 menulst1 = {
-{text="Back up icon layout", funct=backupdb_callback},
-{text="Restore backed up icon layout", funct=restoredb_callback},
+{text="Back up icon layout & app.db", funct=backupdb_callback},
+{text="Restore backed up icon layout", funct=restorelayout_callback},
+{text="Restore backed up app.db", funct=restoredb_callback},
 {text="Import Media", funct=importmedia_callback, desc="Imports media files to either the Photos, Videos or Music app"},
 {text="Update database", funct=updatedb_callback},
 {text="Rebuild database", funct=rebuilddb_callback},
