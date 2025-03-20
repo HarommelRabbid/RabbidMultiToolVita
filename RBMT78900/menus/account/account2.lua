@@ -10,30 +10,26 @@ if os.access() == 0 then os.message("Unsafe mode is required for this homebrew")
 psn = ((os.login() or "")/"@")[1]
 menulst1 = files.list("ux0:data/Rabbid MultiTool/Backups/Account/")
 
-local scroll = newScroll(menulst1,#menulst1)
+local scroll = newScroll(menulst1,8)
 	buttons.interval(10,6)
 
 while true do
 if back then back:blit(0,0) end
-screen.print(10,10,"Rabbid MultiTool Lua") 
-screen.print(10,30,"by Harommel Rabbid")
-	local y = 70
+draw.fillrect(0,0,960,70, color1:a(50))
+screen.print(480, 25, "Switch Account", 1, color.white, color.black, __ACENTER)
+	local y = 75
+	local x = 472.5
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 
-draw.fillrect(5,y-2,350,21, color1) 
-end
-		screen.print(10,y, menulst1[i].name) 
-		y+=20 
-end
-
-if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.orange)
-elseif batt.lifepercent() < 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.red)
+draw.fillrect(5,y,950,50, color1) 
 else
-screen.print(880,10,batt.lifepercent().."%",1,color.green)
+draw.fillrect(5,y,950,50, color1:a(30)) 
+end
+		screen.print(480,y+15, menulst1[i].name, 1, color.white, color.black:a(0), __ACENTER) 
+		y+=55
 end
 
+showbattery()
 if snow == true then stars.render() end
 screen.flip()
 

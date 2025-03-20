@@ -5,8 +5,11 @@ TODO:
 - Add icons to app list
 - Finish the rest of the menus
 ]]
+--dofile("lang/english.lang")
 snow = false
 if os.access() == 0 then os.message("Unsafe mode is required for this homebrew") os.exit() end
+
+charfont = font.load("sa0:data/font/pvf/psexchar.pvf")
 
 --[[appicons = {}
 sysicons = {}
@@ -22,12 +25,27 @@ table.insert(sysicons, i, image.load("vs0:app/"..sysapps[i].id.."/sce_sys/icon0.
 end
 ]]
 
+function showbattery()
+screen.print(10, 10, os.date("%c"))
+if not power.plugged() then
+if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
+screen.print(960-screen.textwidth(batt.lifepercent().."%", 1)-10,10,batt.lifepercent().."%",1,color.orange)
+elseif batt.lifepercent() < 20 then
+screen.print(960-screen.textwidth(batt.lifepercent().."%", 1)-10,10,batt.lifepercent().."%",1,color.red)
+else
+screen.print(960-screen.textwidth(batt.lifepercent().."%", 1)-10,10,batt.lifepercent().."%",1,color.green)
+end
+else
+screen.print(960-screen.textwidth(batt.lifepercent().."%", 1)-10,10,batt.lifepercent().."%",1,color.yellow)
+end
+end
+
 if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "customfont", "default") == "true" then
   local fontpath = ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "fontpath", "default")
  font.load(fontpath)
  font.setdefault(fontpath)
 else
- font.setdefault()
+ font.setdefault(--[[__FONT_TYPE_PVF]])
 end
 
 if ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "custombg", "default") == "true" then
@@ -66,11 +84,11 @@ if color1 == "default" then
  ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "color", "navy")
 end
 
-if snow1 == "default" then
+--[[if snow1 == "default" then
  ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "snow", "false")
-end
-
-color1 = colpallete[color1]
+ ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "customfont", "true")
+ ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "fontpath", "sa0:data/font/pvf/jpn2.pvf")
+end]]
 
 dofile("git/updater.lua")
 
@@ -78,7 +96,8 @@ exit1_callback = function()
  dofile("menus/menu.lua")
 end
 
-if files.exists("ux0:data/Rabbid MultiTool/config.ini") == false then
+if not files.exists("ux0:data/Rabbid MultiTool/config.ini") then
+ files.mkdir("ux0:data/Rabbid MultiTool")
  ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "appicon", "false")
  ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "customfont", "true")
  ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "fontpath", "sa0:data/font/pvf/jpn2.pvf")
@@ -87,6 +106,8 @@ if files.exists("ux0:data/Rabbid MultiTool/config.ini") == false then
  ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "color", "navy")
  ini.write("ux0:data/Rabbid MultiTool/config.ini", "settings", "snow", "false")
 end
+
+color1 = colpallete[ini.read("ux0:data/Rabbid MultiTool/config.ini", "settings", "color", "default")]
 
 if ((tonumber(os.date("%m")) == 12 or tonumber(os.date("%m")) == 1 or tonumber(os.date("%m")) == 2) and snow1 == "auto") or snow1 == "true" then snow = true end
 

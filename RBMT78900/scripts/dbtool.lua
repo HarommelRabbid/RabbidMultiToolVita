@@ -16,14 +16,14 @@ function import_media(path)
 if filesres == 1 then
  media_count+=1
  if media_count == 1 then
- if bg == true then back:blit(0,0) end 
+ if back then back:blit(0,0) end 
  message_wait("Imported Media:\n\n"..media_count.." file imported")
  else
- if bg == true then back:blit(0,0) end 
+ if back then back:blit(0,0) end 
  message_wait("Imported Media:\n\n"..media_count.." files imported")
  end
 else
- if bg == true then back:blit(0,0) end 
+ if back then back:blit(0,0) end 
  message_wait("Imported Media:\n\nSkipping file...")
 end
  if files1 and #files1 > 0 then
@@ -34,9 +34,9 @@ end
 
 function restore_db(path)
  if files.copy("ux0:data/Rabbid MultiTool/Backups/app.db", path) and files.copy("ux0:data/Rabbid MultiTool/Backups/iconlayout.ini", path) == 1 then
-  os.dialog("Successfully restored app.db to the last backed up version")
+  os.dialog("Successfully restored app.db & iconlayout.ini to the last backed up version")
   restart_flag = true
  else
-  os.dialog("app.db not detected. You can back it up first")
+  os.dialog("app.db & iconlayout.ini not detected. You can back it up first")
  end
 end

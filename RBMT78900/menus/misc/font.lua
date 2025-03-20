@@ -64,14 +64,7 @@ end
 		y+=55
 end
 
-if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.orange)
-elseif batt.lifepercent() < 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.red)
-else
-screen.print(880,10,batt.lifepercent().."%",1,color.green)
-end
-
+showbattery()
 if snow == true then stars.render() end
 screen.flip()
 

@@ -23,7 +23,8 @@ if back then back:blit(0,0) end
 draw.fillrect(0,0,960,70, color1:a(50))
 screen.print(480, 25, "Apps", 1, color.white, color.black, __ACENTER)
 draw.fillrect(0,544-30,960,70, color1:a(50)) 
-screen.print(960-screen.textwidth("L/R: App Types", 1)-5, 544-25, "L/R: App Types")
+screen.print(charfont, 960-screen.textwidth("010101 App Types", 1)-5, 544-25, "01")
+screen.print(960-screen.textwidth(" App Types", 1)-5, 544-25, " App Types")
 	local y = 75
 	for i=scroll.ini,scroll.lim do 
 		if i == scroll.sel then 
@@ -44,14 +45,7 @@ end
 		y+=55
 end
 
-if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.orange)
-elseif batt.lifepercent() < 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.red)
-else
-screen.print(880,10,batt.lifepercent().."%",1,color.green)
-end
-
+showbattery()
 if snow == true then stars.render() end
 screen.flip()
 

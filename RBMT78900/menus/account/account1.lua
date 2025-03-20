@@ -19,13 +19,7 @@ screen.print(10,135,"PSN Region: "..tostring(os.psnregion()))
 screen.print(10,155,"PSN ID: "..tostring(os.account())) 
 draw.fillrect(5,544-55,950,50, color1) 
 screen.print(480, 544-40, "Back")
-if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.orange)
-elseif batt.lifepercent() < 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.red)
-else
-screen.print(880,10,batt.lifepercent().."%",1,color.green)
-end
+showbattery()
 if snow == true then stars.render() end
 screen.flip()
 

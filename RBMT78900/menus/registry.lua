@@ -57,7 +57,7 @@ end
 menulst1 = {
 {text="Reset parental passcode", funct=parental_callback},
 {text="Reset screen lock passcode", funct=lock_callback},
-{text="Modify registry keys", funct=custom_callback},
+{text="Modify any registry key", funct=custom_callback},
 {text="Back to main menu", funct=exit1_callback}
 }
 
@@ -88,14 +88,7 @@ end
 screen.print(161*4,75+15, os.getreg("/CONFIG/SECURITY/PARENTAL/", "passcode", 2)) 
 screen.print(161*4,75+55+15, os.getreg("/CONFIG/SECURITY/SCREEN_LOCK/", "passcode", 2))
 
-if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.orange)
-elseif batt.lifepercent() < 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.red)
-else
-screen.print(880,10,batt.lifepercent().."%",1,color.green)
-end
-
+showbattery()
 if snow == true then stars.render() end
 screen.flip()
 

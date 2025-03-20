@@ -1,5 +1,6 @@
 dofile("scripts/stars.lua")
 dofile("scripts/scroll.lua")
+dofile("scripts/downloader.lua")
 color.loadpalette()
 buttons.homepopup(0)
 SYMBOL_SQUARE	= string.char(0xe2)..string.char(0x96)..string.char(0xa1)
@@ -14,6 +15,10 @@ end
 
 local sfo_callback = function()
  dofile("menus/misc/sfo.lua")
+end
+
+local dl_callback = function()
+ download(osk.init("Enter the URL to download", "https://"))
 end
 
 local ftp_callback = function()
@@ -38,6 +43,7 @@ end
 local menulst = {
 {text="Font Previewer",funct=font_callback},
 {text=".SFO Tools",funct=sfo_callback},
+{text="File Downloader",funct=dl_callback},
 {text="Enable FTP",funct=ftp_callback},
 {text="Enable USB",funct=usb_callback, desc="Enables USB on the SD2Vita"},
 {text="Back to main menu",funct=exit1_callback}
@@ -66,13 +72,7 @@ end
 		y+=55
 end
 
-if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.orange)
-elseif batt.lifepercent() < 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.red)
-else
-screen.print(880,10,batt.lifepercent().."%",1,color.green)
-end
+showbattery()
 if snow == true then stars.render() end
 screen.flip()
 

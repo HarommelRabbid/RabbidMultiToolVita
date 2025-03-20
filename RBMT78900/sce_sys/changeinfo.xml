@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<changeinfo>
+  <changes app_ver="00.09">
+    <![CDATA[
+- Added App Tools, where you can manage your apps and add custom livearea images.<br>
+- Added Account Tools, an account manager.<br>
+- Improved media importing.<br>
+    ]]>
+  </changes>
+  <changes app_ver="00.08">
+    <![CDATA[
+- Changed menu style to a scrollable list of menu items for easier use.<br>
+- Added about info and credits.<br>
+- Added placeholder manual until the correct ones are added.<br>
+    ]]>
+  </changes>
+</changeinfo>

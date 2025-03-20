@@ -35,7 +35,7 @@ end
 menulst1 = {
 {text="Back up icon layout", funct=backupdb_callback},
 {text="Restore backed up icon layout", funct=restoredb_callback},
-{text="Import Media", funct=importmedia_callback, desc="Imports media to the Photos/Videos/Music app"},
+{text="Import Media", funct=importmedia_callback, desc="Imports media files to either the Photos, Videos or Music app"},
 {text="Update database", funct=updatedb_callback},
 {text="Rebuild database", funct=rebuilddb_callback},
 {text="Back to main menu", funct=exit1_callback}
@@ -65,14 +65,7 @@ end
 		y+=55
 end
 
-if batt.lifepercent() < 50 and batt.lifepercent() >= 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.orange)
-elseif batt.lifepercent() < 20 then
-screen.print(880,10,batt.lifepercent().."%",1,color.red)
-else
-screen.print(880,10,batt.lifepercent().."%",1,color.green)
-end
-
+showbattery()
 if snow == true then stars.render() end
 screen.flip()
 
