@@ -24,6 +24,7 @@ function playvideo(path, title)
  if video.init(path) == 1 then
   local stats = true
   local statstime = timer.new()
+   --buttons.read()
   while video.actived() do
    buttons.read()
    touch.read()
@@ -57,5 +58,6 @@ function playvideo(path, title)
   screen.flip()
   end
  video.term()
+   buttons.read()
  end
 end
