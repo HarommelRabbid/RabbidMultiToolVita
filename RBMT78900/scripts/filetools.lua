@@ -37,7 +37,7 @@ function playvideo(path, title)
    if buttons.accept or touch.front[1].pressed then if not stats then stats = true else stats = false statstime:stop() statstime:reset() end end
    if buttons.triangle then stats = true statstime:reset() if video.looping() then video.looping(0) else video.looping(1) end end
   if buttons.held.cross or touch.front[1].held then statstime:reset() end
-  video.render(0,0,960,544)
+  video.render((960-(video.getrealw()*1.5))/2,0,video.getrealw()+(video.getrealw()/2),544)
   if stats then
    statstime:start()
    draw.fillrect(0,0,960,70, color1:a(50)) 
