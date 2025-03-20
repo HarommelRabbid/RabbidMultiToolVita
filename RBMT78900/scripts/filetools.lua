@@ -35,6 +35,7 @@ function playvideo(path, title)
    if buttons.cancel then video.stop() videostate = false end
    if buttons.accept or touch.front[1].pressed then if not stats then stats = true else stats = false statstime:stop() statstime:reset() end end
    if buttons.triangle then stats = true statstime:reset() if video.looping() then video.looping(0) else video.looping(1) end end
+  if buttons.held.cross or touch.front[1].held then statstime:reset() end
   video.render(0,0,960,544)
   if stats then
    statstime:start()
