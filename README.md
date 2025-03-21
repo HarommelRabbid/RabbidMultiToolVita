@@ -7,7 +7,7 @@ A powerful toolbox for the PS Vita. It only does everything!
 ### Database Tools
 * **Back up icon layout**: Backs up the app database & icon layout to use it in case of restoring your bubble layout.
 * **Restore backed up icon layout**: Self-explanatory, restores your previously backed up app database & icon layout.
-* **Update database**: Also self-explanatory, triggers a database update. Doing this wipes your custom themes from the database and you'll have to add them back using a custom themes manager. Official themes aren't affected and will stay.
+* **Update database**: Also self-explanatory, triggers a database update. Doing this wipes your custom themes from the database and you'll have to add them back using a custom theme manager. Official themes aren't affected and will stay.
 * **Rebuild database**: Self-explanatory yet again, triggers a database rebuild. Doing so wipes your bubble layout. It can be restored by using the aforementioned backup/restore app database option.
 * **Import Media**: Imports media to the database, meaning it can be accessed by using the system media apps.
 ### App Tools
