@@ -1,14 +1,14 @@
 LANG = {
 -- menu strings
-MENU_DB = "Database Tools",
-MENU_APP = "App Tools",
-MENU_ACC = "Account Tools",
-MENU_REG = "Registry Tools",
-MENU_MISC = "Misc. Tools",
-MENU_REPATCH = "rePatch Tools",
-MENU_taiHEN = "taiHEN Tools",
-MENU_FILE = "File Manager",
-MENU_SETT = "Settings",
-MENU_ABOUT = "About",
+MENU_DB = "Outils de la base de données",
+MENU_APP = "Outils d'application",
+MENU_ACC = "Outils de compte",
+MENU_REG = "Outils du registre",
+MENU_MISC = "Outils divers",
+MENU_REPATCH = "Outils rePatch",
+MENU_taiHEN = "Outils taiHEN",
+MENU_FILE = "Gestionnaire de fichiers",
+MENU_SETT = "Paramètres",
+MENU_ABOUT = "À propos",
 MENU_EXIT = "Quitter"
 }
