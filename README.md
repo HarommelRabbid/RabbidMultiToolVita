@@ -42,3 +42,6 @@ Obvious. Manages your files. It can open images and play music & videos. Do note
 Auto-Updating is now a thing, you can now update directly within the app. This will affect versions 0.10 and onwards, as versions 0.09 or below need to be updated manually because they don't have auto-updating. The code is sourced from other official OneLua apps.
 ## Credits
 * OneLua team for their Lua interpreter and their past apps.
+### Translations besides English
+* theheroGAC for translating to Italian
+* Harommel (me) & Chronoss for translating to French
