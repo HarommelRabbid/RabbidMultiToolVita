@@ -1,0 +1,14 @@
+LANG = {
+    -- stringhe del menu
+    MENU_DB = "Strumenti del Database",
+    MENU_APP = "Strumenti dell'App",
+    MENU_ACC = "Strumenti dell'Account",
+    MENU_REG = "Strumenti del Registro",
+    MENU_MISC = "Strumenti Vari",
+    MENU_REPATCH = "Strumenti rePatch",
+    MENU_taiHEN = "Strumenti taiHEN",
+    MENU_FILE = "Gestione File",
+    MENU_SETT = "Impostazioni",
+    MENU_ABOUT = "Informazioni",
+    MENU_EXIT = "Esci"
+}
