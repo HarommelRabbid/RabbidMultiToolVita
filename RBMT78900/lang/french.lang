@@ -1,0 +1,27 @@
+LANG = {
+-- menu strings
+MENU_WELCOME = "Bienvenue sur Rabbid MultiTool!",
+MENU_DB = "Outils de la base de données",
+MENU_APP = "Outils d'application",
+MENU_ACC = "Outils de compte",
+MENU_REG = "Outils du registre",
+MENU_MISC = "Outils divers",
+MENU_REPATCH = "Outils rePatch",
+MENU_taiHEN = "Outils taiHEN",
+MENU_FILE = "Gestionnaire de fichiers",
+MENU_SETT = "Paramètres",
+MENU_ABOUT = "À propos",
+MENU_EXIT = "Quitter",
+BACK = "Retour",
+-- Database Tools
+DB_BACKUP = "Sauvegarder la disposition des icônes et app.db",
+DB_RESTORELAYOUT = "Restaurer la disposition des icônes sauvegardée",
+DB_RESTOREDB = "Restaurer l'app.db sauvegardé",
+DB_IMPORTMEDIA = "Importer des fichiers multimédias",
+DB_UPDATEDB = "Mettre à jour la base de données",
+DB_REBUILDDB = "Reconstruire la base de données"
+}
+
+DESC = {
+
+}
