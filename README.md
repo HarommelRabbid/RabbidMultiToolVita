@@ -45,5 +45,3 @@ Auto-Updating is now a thing, you can now update directly within the app. This w
 ### Translations besides English
 * theheroGAC for translating to Italian
 * Harommel (me) & Chronoss for translating to French
-## QR Code to download the latest 0.12pre2
-<img src="Screenshots/Untitled 1.png">
