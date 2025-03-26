@@ -1,5 +1,5 @@
 # Rabbid MultiTool
-A powerful toolbox for the PS Vita. It only does everything!
+A powerful toolbox for the PS Vita which combines multiple homebrew utilities into one. It only does everything!
 
 <img src="Screenshots/IMG_3042.png">
 
