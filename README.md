@@ -25,7 +25,6 @@ Once clicked, a list will show with all the apps installed, system apps present 
 * .SFO Tools
 * Open URI
 * Scan QR code
-* Configure PKGj settings
 * File Downloader
 * USB & FTP
 ### rePatch Tools
@@ -34,8 +33,8 @@ Manages your games that use rePatch (enable & disable games from using rePatch).
 Manages your plugins on your Vita (like to enable & disable plugins).
 ### File Manager
 Obvious. Manages your files. It can open images and play music & videos. Do note that some audio files may scuff up and play distorted. This is a problem in the interpreter itself. It can also install .VPKs, extract .PBPs and edit files. The interface might seem a bit familliar if you've used VitaShell (99% did).
-## Partition Tools
-Allows you to remap partitions. Useful if you're setting up your SD2Vita or something similar.
+### Translation Tools
+Translates text
 ### Settings
 * Show icons in app list: Enable/disable icon preview in the app list of **App Tools**. It's recommended to turn this off as having it on might cause lag/freezing issues and sometimes either a C stack overflow error or a GPU crash.
 * Use custom background
